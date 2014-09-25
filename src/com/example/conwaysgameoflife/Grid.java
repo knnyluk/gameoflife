@@ -11,6 +11,18 @@ public class Grid {
         seedLiveCells(coordinatesPairs);
     }
 
+    public Cell[][] getGrid() {
+        return grid;
+    }
+
+    public int getRowCount() {
+        return grid.length;
+    }
+
+    public int getColCount() {
+        return grid[0].length;
+    }
+
     public void printGrid() {
         for (Cell[] cellRow: grid) {
             for (Cell cell: cellRow) {
@@ -20,12 +32,16 @@ public class Grid {
         }
     }
 
+    public int liveNeighborCount(int[] cellCoords) {
+        return countLiveCells(getNeighboringCoords(cellCoords));
+    }
+
     public int countLiveCells(ArrayList<int[]> coordPairs) {
         int aliveCount = 0;
         for (int[] coordPair: coordPairs) {
-            System.out.println("" + coordPair[0] + coordPair[1]);
-            if (getCell(coordPair).alive) {
-                System.out.println("alive");
+//            System.out.println("" + coordPair[0] + coordPair[1]);
+            if (getCell(coordPair).isAlive()) {
+//                System.out.println("alive");
                 aliveCount += 1;
             }
         }
@@ -41,7 +57,7 @@ public class Grid {
         int highCol = (coordPair[0] + 1) < grid[0].length ? (coordPair[0] + 1) : coordPair[0];
         for (; lowRow <= highRow; lowRow++) {
             for (lowCol = (coordPair[0] - 1) >= 0 ? (coordPair[0] - 1) : coordPair[0]; lowCol <= highCol; lowCol++) {
-                // need better fix for original coords showing up as a neighboring coord
+                // Works, but replace with better fix for original coords showing up as a neighboring coord
                 if (lowCol != coordPair[0] || lowRow != coordPair[1] ) {
                     neighborCoords.add(new int[]{lowCol, lowRow});
                 }
@@ -50,7 +66,7 @@ public class Grid {
         return neighborCoords;
     }
 
-    private Cell getCell(int[] coordPair) {
+    public Cell getCell(int[] coordPair) {
         return grid[coordPair[1]][coordPair[0]];
     }
 

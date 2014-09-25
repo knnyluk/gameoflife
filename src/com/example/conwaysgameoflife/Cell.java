@@ -1,7 +1,15 @@
 package com.example.conwaysgameoflife;
 
 public class Cell {
-    public boolean alive;
+    private boolean alive;
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void live() {
+        alive = true;
+    }
 
     public void kill() {
         alive = false;
