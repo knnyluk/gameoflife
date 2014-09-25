@@ -20,6 +20,18 @@ public class Grid {
         }
     }
 
+    public int countLiveCells(ArrayList<int[]> coordPairs) {
+        int aliveCount = 0;
+        for (int[] coordPair: coordPairs) {
+            System.out.println("" + coordPair[0] + coordPair[1]);
+            if (getCell(coordPair).alive) {
+                System.out.println("alive");
+                aliveCount += 1;
+            }
+        }
+        return aliveCount;
+    }
+
     public ArrayList<int[]> getNeighboringCoords(int[] coordPair) {
         ArrayList<int[]> neighborCoords = new ArrayList<int[]>();
         int lowRow = (coordPair[1] - 1) >= 0 ? (coordPair[1] - 1) : coordPair[1];
@@ -28,23 +40,11 @@ public class Grid {
         int highCol = (coordPair[0] + 1) <= grid[0].length ? (coordPair[0] + 1) : coordPair[0];
         for (; lowRow <= highRow; lowRow++) {
             for (lowCol = (coordPair[0] - 1) >= 0 ? (coordPair[0] - 1) : coordPair[0]; lowCol <= highCol; lowCol++) {
-                neighborCoords.add(new int[] {lowRow, lowCol});
+                neighborCoords.add(new int[] {lowCol, lowRow});
             }
         }
         return neighborCoords;
     }
-
-//    private ArrayList<Cell> getLiveCells() {
-//        ArrayList<Cell> liveCells = new ArrayList<Cell>();
-//        for (Cell[] cellRow: grid) {
-//            for (Cell cell: cellRow) {
-//                if (cell.alive) {
-//                    liveCells.add(cell);
-//                }
-//            }
-//        }
-//        return liveCells;
-//    }
 
     private Cell getCell(int[] coordPair) {
         return grid[coordPair[1]][coordPair[0]];

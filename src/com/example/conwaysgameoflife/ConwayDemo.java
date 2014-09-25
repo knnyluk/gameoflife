@@ -6,8 +6,8 @@ public class ConwayDemo {
         GameOfLife gameOfLife = new GameOfLife(sampleCoords);
         gameOfLife.printGrid();
         Grid grid = new Grid(sampleCoords);
-        for (int[] cp: grid.getNeighboringCoords(new int[]{1, 1})) {
-            System.out.println("" + cp[0] + ", " + cp[1]);
-        }
+
+        System.out.println(grid.countLiveCells(grid.getNeighboringCoords(new int[]{2, 2})));
+
     }
 }
