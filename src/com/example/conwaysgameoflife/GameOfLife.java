@@ -73,9 +73,9 @@ public class GameOfLife {
         }
     }
 
-    private void sleep(int timeMS) {
+    private void sleep(int timeInMS) {
         try {
-            Thread.sleep(timeMS);
+            Thread.sleep(timeInMS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
