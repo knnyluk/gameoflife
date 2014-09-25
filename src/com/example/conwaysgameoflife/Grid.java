@@ -41,7 +41,10 @@ public class Grid {
         int highCol = (coordPair[0] + 1) < grid[0].length ? (coordPair[0] + 1) : coordPair[0];
         for (; lowRow <= highRow; lowRow++) {
             for (lowCol = (coordPair[0] - 1) >= 0 ? (coordPair[0] - 1) : coordPair[0]; lowCol <= highCol; lowCol++) {
-                neighborCoords.add(new int[] {lowCol, lowRow});
+                // need better fix for original coords showing up as a neighboring coord
+                if (lowCol != coordPair[0] || lowRow != coordPair[1] ) {
+                    neighborCoords.add(new int[]{lowCol, lowRow});
+                }
             }
         }
         return neighborCoords;
