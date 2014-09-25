@@ -68,7 +68,7 @@ public class GameOfLife {
 
     private void placeLiveCells(ArrayList<int[]> liveCoordPairs) {
         for (int[] liveCoordPair: liveCoordPairs) {
-            gameGrid.getCell(liveCoordPair).live();
+            gameGrid.getCell(liveCoordPair).spontaneouslyGenerate();
         }
     }
 

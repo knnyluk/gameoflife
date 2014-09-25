@@ -7,10 +7,6 @@ public class Cell {
         return alive;
     }
 
-    public void live() {
-        alive = true;
-    }
-
     public void kill() {
         alive = false;
     }
@@ -20,7 +16,6 @@ public class Cell {
     }
 
     public String toString() {
-//        sleep(5);
         if (alive) {
             return "X";
         } else {
