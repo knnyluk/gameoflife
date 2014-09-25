@@ -33,11 +33,12 @@ public class Grid {
     }
 
     public ArrayList<int[]> getNeighboringCoords(int[] coordPair) {
+        //will refactor.  Currently works, but row and col need to be swapped.
         ArrayList<int[]> neighborCoords = new ArrayList<int[]>();
         int lowRow = (coordPair[1] - 1) >= 0 ? (coordPair[1] - 1) : coordPair[1];
         int lowCol = (coordPair[0] - 1) >= 0 ? (coordPair[0] - 1) : coordPair[0];
-        int highRow = (coordPair[1] + 1) <= grid.length ? (coordPair[1] + 1) : coordPair[1];
-        int highCol = (coordPair[0] + 1) <= grid[0].length ? (coordPair[0] + 1) : coordPair[0];
+        int highRow = (coordPair[1] + 1) < grid.length ? (coordPair[1] + 1) : coordPair[1];
+        int highCol = (coordPair[0] + 1) < grid[0].length ? (coordPair[0] + 1) : coordPair[0];
         for (; lowRow <= highRow; lowRow++) {
             for (lowCol = (coordPair[0] - 1) >= 0 ? (coordPair[0] - 1) : coordPair[0]; lowCol <= highCol; lowCol++) {
                 neighborCoords.add(new int[] {lowCol, lowRow});
