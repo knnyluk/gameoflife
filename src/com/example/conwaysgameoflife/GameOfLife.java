@@ -10,11 +10,10 @@ public class GameOfLife {
     }
 
     public void play(int roundsToBePlayed, int gameSpeed) {
-        printGrid();
         while (roundsToBePlayed > 0) {
+            printGrid();
             sleep(gameSpeed);
             iterate();
-            printGrid();
             roundsToBePlayed -= 1;
         }
     }

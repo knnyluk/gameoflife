@@ -6,7 +6,7 @@ public class ConwayDemo {
         int[][] sampleCoords = {{9,9},{8,10},{9,10},{10,10},{8,11},{10,11},{8,12},{9,12},{10,12},{9,13}};
 //        int[][] sampleCoords = {{1,3},{2,3},{3,3},{3,2},{2,1}};
         GameOfLife gameOfLife = new GameOfLife(sampleCoords);
-        gameOfLife.play(50, 500);
+        gameOfLife.play(700, 500);
 //        gameOfLife.printGrid();
 //        gameOfLife.iterate();
 //        gameOfLife.printGrid();

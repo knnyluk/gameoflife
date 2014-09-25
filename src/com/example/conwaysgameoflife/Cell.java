@@ -20,6 +20,7 @@ public class Cell {
     }
 
     public String toString() {
+//        sleep(5);
         if (alive) {
             return "X";
         } else {
